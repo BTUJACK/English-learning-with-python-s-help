@@ -1,5 +1,6 @@
 # English-learning-with-python-help
-超级详细备注的代码：Python帮助您高效通过各种英语考试
+**超级详细备注的代码：Python帮助您高效通过各种英语考试**
+
 标题：限时免费|领取大学英语六级考试葵花宝典
 
 
@@ -18,10 +19,10 @@
 
 ```
 
-#几个函数的设计
+# 几个函数的设计
 
 
-读取PDF文件所有单词
+### 读取PDF文件所有单词
 
 
 ```python
@@ -50,7 +51,7 @@ def pdf_file():
     return words 
 
 ```
-###读取Word文件所有单词
+### 读取Word文件所有单词
 ```python
 
 #读取docx中的单词
@@ -66,7 +67,7 @@ def docx_file():
     words = re.findall('[a-z]+',raw_words) #得到所有的英文单词，排除了汉语单词，各种符号
     return words 
 ```
-###读取TXT文件所有单词
+### 读取TXT文件所有单词
 ```python
 
 #读取TXT中的单词
@@ -76,7 +77,7 @@ def txt_file():
         words = re.findall('[a-z]+',raw_words) #得到所有的英文单词，排除了汉语单词，各种符号
     return words 
 ```
-###统计单词数目
+### 统计单词数目
 
 按照词频逆排序，然后从出现个数最多的单词开始记忆，迅速提高学习效率
 ```python
@@ -111,7 +112,7 @@ def count(words):
     return data #返回列表，每个元素是一个元组，左边是单词，右边是单词出现次数
 
 ```
-###爬取进行翻译
+### 爬取进行翻译
 ```python
 
 #爬取有道翻译网页进行翻译
@@ -148,9 +149,9 @@ def translate(word):
     #print("翻译结果：%s" % (target['translateResult'][0][0]['tgt']))
 
 ```
-#主函数开始
+# 主函数开始
 
-####获取文件夹里所有文件
+#### 获取文件夹里所有文件
 ```python
 
 #主函数开始
@@ -161,7 +162,7 @@ all_words = []
 #words = []
 for filename in filenames:
 ```
-####删除多余文件
+#### 删除多余文件
 ```python
 
     #排除多余的文件，防止重复计数
@@ -190,7 +191,7 @@ for filename in filenames:
         print('len_words is :', len(words))
 
 ```
-####合并所有单词
+#### 合并所有单词
 ```python
 
     #统计所有文件中的英文单词，并且放进列表里
@@ -199,7 +200,7 @@ for filename in filenames:
     print('len_all_words is :', len(all_words))
 
 ```
-####调用计数函数统计单词
+#### 调用计数函数统计单词
 ```python
 
 data = count(all_words) ##得到列表，每个元素是一个元组，左边是单词，右边是单词出现次数
@@ -209,13 +210,13 @@ for w in data:
     #print(chinese)
     word_text = word_text + word + '\n'#所有单词按照词频降序排列写入一个字符串里
 ```
-####进行单词翻译
+#### 进行单词翻译
 ```python
     这里需要爬取网页翻译，耗费大量时间，可以自己选择运行
     chinese = translate(word)
     word_text = word_text + chinese + '\n'#所有单词写入一个
 ```
-####生词单词红宝书
+#### 生词单词红宝书
 用Excel打开
 ```python
 open(file_output,'a').write(word_text)
