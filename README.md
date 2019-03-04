@@ -25,7 +25,7 @@
 ### 读取PDF文件所有单词
 
 
-```python
+```
 
 import re #正则化库
 
@@ -52,7 +52,7 @@ def pdf_file():
 
 ```
 ### 读取Word文件所有单词
-```python
+```
 
 #读取docx中的单词
 import docx
